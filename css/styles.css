@@ -1,0 +1,379 @@
+/* Fuentes y Vasriables */
+@font-face {
+  font-family: 'Poppins';
+  src: 
+    local("Poppins"),
+    url("../fonts/poppins-400.woff2") format("woff2"),
+    url("../fonts/poppins-400.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: 
+    local("Poppins"),
+    url("../fonts/poppins-600.woff2") format("woff2"),
+    url("../fonts/poppins-600.woff") format("woff");
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: 
+    local("Poppins"),
+    url("../fonts/poppins-700.woff2") format("woff2"),
+    url("../fonts/poppins-700.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: 
+    local("Poppins"),
+    url("../fonts/poppins-800.woff2") format("woff2"),
+    url("../fonts/poppins-800.woff") format("woff");
+  font-weight: 800;
+}
+:root {
+  --primary-title: #f9fafc;
+  --secondary-title: #323337;
+  --background-degraded: #000000b3;
+  --link-hover: #ce967b;
+  --section-background: #e1e2e6;
+  --article-text: #414247;
+  --font-family: 'Poppins', sans-serif;
+  --font-size: 16px;
+}
+
+/* Estilos Generales */
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh repeat(5, auto);
+  grid-template-areas: 
+    "header"
+    "coffee"
+    "services"
+    "news"
+    "blog"
+    "footer";
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+/* Estilos Reutilizables */
+.container-width {
+  width: clamp(300px, 90%, 1250px);
+  margin: auto;
+  text-align: center;
+}
+.info-button {
+  padding: 0.7rem 2rem;
+  color: var(--primary-title);
+  background-color: var(--link-hover);
+  transition-duration: 0.3s;
+}
+.section-title {
+  font-size: 3.5rem;
+  line-height: 4.5rem;
+}
+
+/* Efectos Reutilizables */
+.info-button:hover {
+  background-color: #ebad8d;
+}
+
+/* Estilos de Header */
+.header {
+  grid-area: header;
+  color: var(--primary-title);
+  background: 
+    linear-gradient(var(--background-degraded), var(--background-degraded)), 
+    url(../images/background-1.webp)
+    no-repeat center bottom / cover;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  padding: 0 5rem;
+}
+.header__nav__logo, .header__menu__link {
+  color: #fffdfc;
+}
+.header__nav__logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.header__nav__responsive, .header__nav__input {
+  display: none;
+}
+.header__menu {
+  display: flex;
+  gap: 3rem;
+}
+.header__menu__link {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.header__title {
+  margin-top: 30vh;
+  font-size: 5rem;
+}
+.header__text {
+  padding: 0 8rem;
+  margin-top: 3rem;
+  margin-bottom: 4.5rem;
+  font-size: 1.2rem;
+}
+
+/* Efectos de Header */
+.header__menu__link:hover {
+  color: var(--link-hover);
+}
+
+/* Estilos de Cafés */
+.coffee {
+  position: relative;
+  grid-area: coffee;
+  padding: 6.5rem 0;
+  text-align: center;
+  background-color: var(--section-background);
+}
+.coffee__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.coffee__title, .coffee__text {
+  padding: 0 15rem;
+}
+.coffee__title, .coffee__card__title {
+  margin-bottom: 1rem;
+  color: var(--secondary-title);
+}
+.coffee__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+.coffee__card {
+  width: 300px;
+  margin: auto;
+}
+.coffee__card__img {
+  width: 200px;
+}
+.coffee__card__title {
+  font-size: 1.3rem;
+}
+
+/* Estilos de Servicios */
+.services {
+  grid-area: services;
+  background: 
+    linear-gradient(var(--background-degraded), var(--background-degraded)), 
+    url(../images/background-3.webp)
+    no-repeat center center / cover fixed;
+  padding: 6.5rem 0;
+}
+.services__title, .services__container, .services__text {
+  margin-bottom: 3.5rem;
+}
+.services__title {
+  color: var(--primary-title);
+}
+.services__container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+.services__card__icon {
+  width: 1.5rem;
+  margin-bottom: 1rem;
+}
+.services__card__title {
+  font-size: 1.2rem;
+  color: #eaccb3;
+}
+.services__text {
+  padding: 0 6.5rem;
+  color: #c5c5c5;
+}
+
+/* Estilos de Noticias */
+.news {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 500px);
+  grid-area: news;
+}
+.news__card {
+  padding: 6.5rem 10rem 6.5rem 6.5rem;
+  background-color: var(--section-background);
+}
+.news__card__title {
+  margin-bottom: 1.3rem;
+  color: var(--secondary-title);
+}
+.news__card__text {
+  margin: 1.5rem 0 3rem 0;
+  color: var(--article-text);
+}
+.news__img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* Estilos de Blog */
+.blog {
+  grid-area: blog;
+  padding: 6.5rem 0;
+  text-align: center;
+}
+.blog__title {
+  margin-bottom: 1.3rem;
+  color: var(--secondary-title);
+}
+.blog__text {
+  margin: 1.5rem 0 3rem 0;
+  color: var(--article-text);
+}
+.blog__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 4rem;
+  margin-bottom: 3.5rem;
+}
+.blog__card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 300px;
+}
+.blog__card__img {
+  height: 200px;
+  border-radius: 1rem;
+}
+.blog__card__title {
+  font-size: 1.5rem;
+  color: var(--secondary-title);
+}
+
+/* Estilos de Footer */
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 6.5rem 0;
+  background-color: #000;
+}
+.footer__title, .footer__link {
+  margin-bottom: 1rem;
+  color: var(--primary-title);
+}
+.footer__title {
+  font-size: 1.2rem;
+}
+.footer__link {
+  display: block;
+}
+
+/* Efectos de Footer */
+.footer__link:hover {
+  color: var(--link-hover);
+}
+
+/* Estilos en Laptop */
+@media (width <= 1424px) {
+  .coffee__title, .coffee__text {
+    padding: 0 7rem;
+  }
+  .news {
+    grid-template-rows: repeat(2, auto);
+  }
+  .news__card {
+    padding: 5rem;
+    background-color: var(--section-background);
+  }
+}
+
+/* Estilos en Tablet L */
+@media (width <= 850px) {
+  .header__nav__responsive {
+    display: block;
+    width: 2.5rem;
+  }
+  .header__menu {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem 5rem;
+    background-color: var(--secondary-title);
+  }
+  .header__nav__input:checked ~ .header__menu {
+    display: flex;
+  }
+  .news {
+    grid-template-columns: 1fr;
+  }
+  .news__card, .footer {
+    text-align: center;
+  }
+  .news__img {
+    display: none;
+  }
+  .footer {
+    padding: 2rem;
+    flex-direction: column;
+  }
+}
+
+/* Estilos en Tablet S */
+@media (width <= 760px) {
+  .header__nav {
+    padding: 0 3rem;
+  }
+  .header__title {
+    font-size: 4rem;
+  }
+  .header__text {
+    padding: 0 2.5rem;
+    font-size: 1rem;
+  }
+  .coffee__background {
+    display: none;
+  }
+  .coffee__title, .coffee__text {
+    padding: 0 5rem;
+  }
+  .blog__text {
+    padding: 0 1rem;
+  }
+}
+
+/* Estilos en Celular */
+@media (width <=500px) {
+  .coffee__title, .coffee__text, .services__text {
+    padding: 0 1rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .services__container {
+    flex-direction: column;
+  }
+}
